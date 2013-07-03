@@ -1,0 +1,65 @@
+// this one just agregates all the libs
+@import "compass/css3"
+//variables
+$body: #24180e
+// global sprites with padding
+$icons: sprite-map("icons/*.png", $spacing: 10px)
+// sized sprites
+@mixin image-size($path)
+	width: image-width($path)
+	height: image-height($path)
+@mixin sized-sprite($map, $sprite)
+	background: sprite($map, $sprite) no-repeat
+	@include image-size(sprite-file($map, $sprite))
+//shortcut
+@mixin s($sprite, $map: $icons)
+	background: sprite($map, $sprite) no-repeat
+	@include image-size(sprite-file($map, $sprite))
+//only image, when dimensions are useless
+@mixin si($map, $sprite)
+	background: sprite($map, $sprite) no-repeat
+//mixin
+@mixin ht
+	font: 0/0 a
+	text-shadow: none
+	color: transparent
+@mixin clr
+	&:before, &:after
+		content: ""
+		display: table
+	&:after
+		clear: both
+	*zoom: 1
+// placeholder color
+@mixin input-placeholder($color)
+	&.placeholder
+		color: $color
+	&:-moz-placeholder
+		color: $color
+	&::-webkit-input-placeholder
+		color: $color
+//no-select
+@mixin no-select
+	-moz-user-select: none
+	-webkit-user-select: none
+	user-select: none
+//box-sizing
+@mixin box
+	-moz-box-sizing: border-box
+	box-sizing: border-box
+//fonts
+@font-face
+	font-family: 'rex_bold'
+	src: url('../fonts/rex_bold.eot')
+	src: url('../fonts/rex_bold.eot?#iefix') format('embedded-opentype'), url('../fonts/rex_bold.woff') format('woff'), url('../fonts/rex_bold.ttf') format('truetype'), url('../fonts/rex_bold.svg#plumbboldcregular') format('svg')
+	font-weight: normal
+	font-style: normal
+@mixin fh
+	font-family: 'rex_bold', Arial, Tahoma, sans-serif
+//custom mix
+@mixin bsize
+	background-repeat: no-repeat
+	background-size: cover 
+	background-position: 50% 50%
+
+
