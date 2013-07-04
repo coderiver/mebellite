@@ -2,6 +2,7 @@
 @import "compass/css3"
 //variables
 $body: #24180e
+$or: #fcb327
 // global sprites with padding
 $icons: sprite-map("icons/*.png", $spacing: 10px)
 // sized sprites
@@ -30,6 +31,13 @@ $icons: sprite-map("icons/*.png", $spacing: 10px)
 	&:after
 		clear: both
 	*zoom: 1
+//transition
+@mixin trans($what)
+	-moz-transition: $what
+	-o-transition: $what
+	-webkit-transition: $what
+	-ms-transition: $what
+	transition: $what
 // placeholder color
 @mixin input-placeholder($color)
 	&.placeholder

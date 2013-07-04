@@ -10,12 +10,13 @@
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery.cycle2.min.js"></script>
 	<script src="js/jquery.cycle2.carousel.min.js"></script>	
+	<script src="js/jquery.easing.min.js"></script>	
 	<script src="js/jquery.mousewheel.js"></script>	
 	<script src="js/common.js"></script>
 </head>
 <body>
 <!-- BEGIN .wrap -->
-<section class="wrap">
+<section class="wrap js-height">
 	<!-- BEGIN .main -->
 	<div class="item main" style="background-image: url(img/main.jpg);">
 		<div class="sidebar">
@@ -62,7 +63,7 @@
 	</div>
 	<!-- END .main -->
 	<!-- BEGIN .services -->
-	<div class="item services">
+	<div class="item services js-height">
 		<div class="services__block" style="background-image: url(img/pic1.jpg);"></div>
 		<div class="services__block">
 			<div class="services__title">Элитная мебель</div>
@@ -101,22 +102,22 @@
 	<!-- BEGIN .lux -->
 	<div class="item lux">
 		<div class="lux__slider cycle-slideshow" data-cycle-fx="carousel" data-cycle-timeout="0" data-cycle-next="#lux-next" data-cycle-prev="#lux-prev" data-cycle-slides="> div" data-cycle-carousel-visible="1" data-allow-wrap="true" data-pager="#lux-pager">
-			<div class="lux__item" style="background-image: url(img/pic4.jpg);">
+			<div class="lux__item js-height" style="background-image: url(img/pic4.jpg);">
 				<div class="lux__title">
 					<span>Президентский люкс в гостинице Bohemia</span>					
 				</div>
 			</div>
-			<div class="lux__item" style="background-image: url(img/pic4.jpg);">
+			<div class="lux__item js-height" style="background-image: url(img/pic4.jpg);">
 				<div class="lux__title">
 					<span>Интерьер гостиницы «Bohemia»</span>					
 				</div>
 			</div>
-			<div class="lux__item" style="background-image: url(img/pic4.jpg);">
+			<div class="lux__item js-height" style="background-image: url(img/pic4.jpg);">
 				<div class="lux__title">
 					<span>Оформление загородного особняка</span>					
 				</div>
 			</div>
-			<div class="lux__item" style="background-image: url(img/pic4.jpg);">
+			<div class="lux__item js-height" style="background-image: url(img/pic4.jpg);">
 				<div class="lux__title">
 					<span>Подбор предметов обстановки</span>					
 				</div>
@@ -130,8 +131,8 @@
 	</div>
 	<!-- END .lux -->
 	<!-- BEGIN .salon -->
-	<div class="item salon">		
-		<div class="salon__bg" style="background-image: url(img/pic5.jpg);"></div>
+	<div class="item salon js-height">		
+		<div class="salon__bg js-height" style="background-image: url(img/pic5.jpg);"></div>
 		<div class="salon__in">
 			<div class="salon__title">
 				<span>О салоне Lайт</span>
@@ -148,7 +149,7 @@
 	</div>
 	<!-- END .salon -->
 	<!-- BEGIN .main-contact -->
-	<div class="item m-contacts">
+	<div class="item m-contacts js-height">
 		<div class="m-contacts__in">
 			<div class="m-contacts__title">Контакты</div>
 			<ul class="m-contacts__list">
