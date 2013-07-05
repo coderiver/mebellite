@@ -5,8 +5,7 @@
 	//-webkit-text-size-adjust: none
 html, body 
 	height: 100%
-body
-	background: $body
+body	
 	font-family: 'Scada', Arial, Tahoma, sans-serif
 	font-weight: normal 
 	font-size: 14px
@@ -14,16 +13,14 @@ body
 	line-height: 1.2
 	overflow-x: auto
 	overflow-y: hidden
-	//-webkit-transform: translate3d(0,0,0);
-	//-weblit-backface-visibility: hidden;
+	//-webkit-transform: translate3d(0,0,0)
+	//-weblit-backface-visibility: hidden
 // resets
 a img, fieldset 
 	border: none
 a
 	color: #fff
 	text-decoration: none
-	&:hover
-		
 p
 	line-height: 1.2
 li 
@@ -42,11 +39,15 @@ table
 	border-spacing: 0
 	border-collapse: collapse
 // common styles
+.no-scroll
+	overflow: hidden !important
 .wrap
-	max-height: 900px
+	position: relative
 	min-height: 650px
+	background: $body
 	white-space: nowrap
 	font-size: 0 
+	z-index: 100 
 .item
 	position: relative
 	display: inline-block

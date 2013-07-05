@@ -11,9 +11,16 @@ function wnd_size() {
 	var wnd_h = $(window).height();
 	var wnd_w = $(window).width();
 	var min_h = 650;	
-	$('.main, .about').css({'width': wnd_w, 'height': wnd_h});
+	$('.main, .about, .gallery, .gallery__pic, .gallery__slider').css({'width': wnd_w, 'height': wnd_h});
 	$('.services__block').css('height', wnd_h/2);	
 	$('.salon').css('line-height', wnd_h + 'px');	
+	function wrap_width() {
+		var wrap_w = 0;
+		$('.wrap .item').each(function() {			
+			wrap_w += $(this).width();	
+		});
+		$('.wrap').width(wrap_w);
+	}
 	function portfolio_width() {
 		var items = $('.portfolio__item').length;
 		var koef = items/3;
@@ -38,6 +45,7 @@ function wnd_size() {
 	};
 	portfolio_width();
 	partners_width();
+	wrap_width();
 	if (wnd_h < min_h) {
 		$('.js-height').css('height', '650px');
 		$('body').css('overflow-y', 'auto');
@@ -66,16 +74,12 @@ function lux_slider() {
 	var el = $('.lux__slider .lux__item.cycle-slide-active');
 	var prev = $('#lux-prev');
 	var next = $('#lux-next');
-
 	var el_next_current = el.next();
-	var el_prev_current = el.prev();	
-
+	var el_prev_current = el.prev();
 	var title_next_current = el_next_current.find('.lux__title span').text();
 	var title_prev_current = el_prev_current.find('.lux__title span').text();	
-
 	next.html(title_next_current + '<i></i>');
 	prev.html(title_prev_current + '<i></i>');
-
 	next.click(function() {
 		var el = $('.lux__slider .lux__item.cycle-slide-active');		
 		var el_next = el.next().next();
@@ -94,25 +98,24 @@ function lux_slider() {
 		next.html(title_next + '<i></i>');
 		prev.html(title_prev + '<i></i>');
 	});
-
 };
-lux_slider();
 
 //portfolio description
 $('.portfolio__block').click(function() {
 	var el = $(this).next();
-	var top = el.offset().top;
-	var left = el.offset().left;
-	var right = $(window).width() - (el.offset().left + el.outerWidth());
-	var bottom = $(window).height() - (el.offset().top + el.outerHeight());
+	var project = $('#project').html();
 	el.addClass('is-active');
-	el.css({'left': left, 'right': right, 'top': top, 'bottom': bottom});	
-	el.animate({
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-  }, 500, 'easeInQuart');
+	$(this).next().html(project);
+	$('body').addClass('no-scroll');
+});
+$(document).on('click', '.back', function() {
+	$(this).parent().parent().removeClass('is-active');
+	$('body').removeClass('no-scroll');
+});
+
+//gallery
+$(document).on('click', '.project__gallery li', function() {
+	$('.gallery').addClass('is-active');
 });
 
 //acordeon
@@ -128,6 +131,7 @@ $('.acord__item').click(function() {
 
 //init
 wnd_size();
+lux_slider();
 
 //window resize
 $(window).resize(function() {

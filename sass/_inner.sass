@@ -1,9 +1,10 @@
 @import "base"
 //styles for inner pages
-.portfolio, .catalog
+.catalog
 	padding-left: 265px 
 //portfolio	
 .portfolio__list
+	padding-left: 265px
 	font-size: 0
 	overflow: hidden
 .portfolio__item
@@ -56,20 +57,181 @@
 		opacity: 1
 		z-index: 5
 .portfolio__desc
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	+trans(all .2s linear)
+	opacity: 0 
+	&.is-active
+		position: fixed
+		width: 100%
+		background: $body
+		opacity: 1
+		z-index: 100
+//project
+.load
+	position: fixed
+	top: 0
+	left: 0
+	width: 0
+	height: 0
+	z-index: 10
+.project, .gallery
+	background: $body
+	z-index: 10 
+	line-height: 1.2
+	font-size: 14px
+	text-align: left
+.project
+	padding: 40px
+.gallery
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	+opacity(0)
+	+trans(opacity .2s linear)
+	&.is-active
+		+opacity(1)
+		z-index: 1000 
+.project__row
+	margin-bottom: 80px
+	overflow: hidden
+.project__pic, .project__detail
+	float: left
+	width: 32%	
+	margin-right: 3%
+.project__pic
+	height: 300px
+	+bsize
+.project__desc
+	overflow: hidden
+.project__title
+	margin-bottom: 40px
+	+fh	
+	font-size: 24px
+	color: #FFF 
+.project__text
+	-moz-column-count: 2
+	-webkit-column-count: 2
+	column-count: 2
+	-moz-column-gap: 30px
+	-webkit-column-gap: 30px
+	column-gap: 30px
+	p
+		line-height: 1.5
+.project__detail 	
+	li
+		margin-bottom: 15px
+		font-style: italic
+	strong
+		margin-right: 5px
+.project__gallery
+	overflow: hidden
+	li
+		position: relative
+		float: left
+		width: 20%
+		margin: 0 10px 10px 0
+		background: #342b2a 
+		cursor: pointer
+		&:hover
+			.project__zoom
+				+opacity(1)
+	img
+		display: block
+		width: 100%
+.project__zoom
 	position: absolute
 	top: 0
 	left: 0
 	right: 0
 	bottom: 0
-	&.is-active
-		position: fixed
-		top: auto
-		left: auto
-		right: auto
-		bottom: auto
-		background: #FFF 
-		background: $body
-		z-index: 100 
+	background: rgb(52,43,42) 
+	background: rgba(52,43,42,.73)	
+	+opacity(0)
+	i
+		position: absolute
+		top: 50%
+		left: 50%
+		margin: -15px 0 0 -15px
+		+s(zoom)
+.gallery__pic
+	width: 100%
+	height: 100%
+	+bsize
+.gallery__nav
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	background: rgb(255,255,255) 
+	background: rgba(255,255,255,.8) 
+	overflow: hidden
+	z-index: 1000
+.gallery__prev, .gallery__next
+	position: relative
+	float: left
+	width: 70px
+	height: 55px  
+	margin-right: 15px	
+	background: none
+	overflow: visible 
+	i
+		position: absolute
+		top: 16px
+		left: 25px
+	&.disabled
+		opacity: .4
+		cursor: default 
+.gallery__prev
+	i
+		+s(prev)
+.gallery__next
+	i
+		+s(next)
+.gallery__current
+	float: left
+	margin-right: 15px
+	line-height: 55px
+	+fh
+	font-size: 24px
+	color: #000
+.gallery__close	
+	position: relative
+	float: right
+	height: 55px
+	padding: 0 25px
+	background: none
+	i
+		display: inline-block
+		+s(close)
+//back
+.back
+	position: absolute
+	top: 30px
+	right: 20px
+	height: 36px
+	padding-left: 45px 	
+	background: none
+	font-size: 13px
+	font-style: italic
+	text-decoration: underline
+	color: #fff 
+	overflow: visible
+	span
+		position: absolute
+		top: 0
+		left: 0
+		padding: 1px
+		border: 3px solid #fff
+		border-radius: 50%
+	i
+		display: block
+		+s(back)
 //catalog
 .catalog__list
 	padding: 10px
