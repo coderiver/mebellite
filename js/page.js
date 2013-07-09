@@ -1,7 +1,8 @@
 var Page = (function() {
-
-	var $container = $( '#container' ),
+	var $container = $( '#gallery-wrap' ),
 		$bookBlock = $( '#bb-bookblock' ),
+		$bookCurr = $( '#bb-current' ),
+		$bookItems = $( '#bb-items' ),
 		$items = $bookBlock.children(),
 		itemsCount = $items.length,
 		current = 0,
@@ -10,22 +11,16 @@ var Page = (function() {
 			perspective : 2000,
 			shadowSides	: 0.8,
 			shadowFlip	: 0.4,
-			onEndFlip : function(old, page, isLimit) {
-				
+			onEndFlip : function(old, page, isLimit) {				
 				current = page;
-				// update TOC current
-				//updateTOC();
-				// updateNavigation
-				updateNavigation( isLimit );
-				// initialize jScrollPane on the content div for the new item
-				//setJSP( 'init' );
-				// destroy jScrollPane on the content div for the old item
-				//setJSP( 'destroy', old );
-
+				updateNavigation(isLimit);
+				page++;
+				$bookCurr.html(page);
+				$bookItems.html(itemsCount);
 			}
 		} ),
 		$navNext = $( '#bb-nav-next' ),
-		$navPrev = $( '#bb-nav-prev' ).hide(),
+		$navPrev = $( '#bb-nav-prev' ).addClass('disabled'),
 		$menuItems = $container.find( 'ul.menu-toc > li' ),
 		$tblcontents = $( '#tblcontents' ),
 		transEndEventNames = {
@@ -37,26 +32,19 @@ var Page = (function() {
 		},
 		transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
 		supportTransitions = Modernizr.csstransitions;
-
 	function init() {
-
 		initEvents();
-
-	}
-	
+	}	
 	function initEvents() {
-
 		// add navigation events
 		$navNext.on( 'click', function() {
 			bb.next();
 			return false;
 		} );
-
 		$navPrev.on( 'click', function() {
 			bb.prev();
 			return false;
-		} );
-		
+		} );		
 		// add swipe events
 		$items.on( {
 			'swipeleft'		: function( event ) {
@@ -74,77 +62,31 @@ var Page = (function() {
 				return false;
 			}
 		} );
-
-		// show table of contents
-		//$tblcontents.on( 'click', toggleTOC );
-
 		// click a menu item
 		$menuItems.on( 'click', function() {
-
 			var $el = $( this ),
 				idx = $el.index(),
 				jump = function() {
 					bb.jump( idx + 1 );
-				};
-			
+				};			
 			current !== idx ? closeTOC( jump ) : closeTOC();
-
-			return false;
-			
+			return false;			
 		} );
-
 	}
-
-	// function updateTOC() {
-	// 	$menuItems.removeClass( 'menu-toc-current' ).eq( current ).addClass( 'menu-toc-current' );
-	// }
-
-	function updateNavigation( isLastPage ) {
-		
+	function updateNavigation( isLastPage ) {		
 		if( current === 0 ) {
-			$navNext.show();
-			$navPrev.hide();
+			$navNext.removeClass('disabled');
+			$navPrev.addClass('disabled');
 		}
 		else if( isLastPage ) {
-			$navNext.hide();
-			$navPrev.show();
+			$navNext.addClass('disabled');
+			$navPrev.removeClass('disabled');
 		}
 		else {
-			$navNext.show();
-			$navPrev.show();
+			$navNext.removeClass('disabled');
+			$navPrev.removeClass('disabled');
 		}
-
 	}
-
-	// function toggleTOC() {
-	// 	var opened = $container.data( 'opened' );
-	// 	opened ? closeTOC() : openTOC();
-	// }
-
-	// function openTOC() {
-	// 	$navNext.hide();
-	// 	$navPrev.hide();
-	// 	$container.addClass( 'slideRight' ).data( 'opened', true );
-	// }
-
-	// function closeTOC( callback ) {
-
-	// 	updateNavigation( current === itemsCount - 1 );
-	// 	$container.removeClass( 'slideRight' ).data( 'opened', false );
-	// 	if( callback ) {
-	// 		if( supportTransitions ) {
-	// 			$container.on( transEndEventName, function() {
-	// 				$( this ).off( transEndEventName );
-	// 				callback.call();
-	// 			} );
-	// 		}
-	// 		else {
-	// 			callback.call();
-	// 		}
-	// 	}
-
-	// }
-
 	return { init : init };
-
 })();
+Page.init();

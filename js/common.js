@@ -11,7 +11,7 @@ function wnd_size() {
 	var wnd_h = $(window).height();
 	var wnd_w = $(window).width();
 	var min_h = 650;	
-	$('.main, .about, .gallery, .gallery__pic, .gallery__slider').css({'width': wnd_w, 'height': wnd_h});
+	$('.main, .about, .contacts').css({'width': wnd_w, 'height': wnd_h});
 	$('.services__block').css('height', wnd_h/2);	
 	$('.salon').css('line-height', wnd_h + 'px');	
 	function wrap_width() {
@@ -115,7 +115,10 @@ $(document).on('click', '.back', function() {
 
 //gallery
 $(document).on('click', '.project__gallery li', function() {
-	$('.gallery').addClass('is-active');
+	$('.gallery-wrap').addClass('is-active');
+});
+$(document).on('click', '.bb-close', function() {
+	$('.gallery-wrap').removeClass('is-active');
 });
 
 //acordeon
@@ -129,9 +132,20 @@ $('.acord__item').click(function() {
 	};
 });
 
+//gallery book
+function gallery_book() {
+	var el = $('.bb-item');
+	var caption = $('#bb-caption');
+	var count = 1;
+	var items = el.length;
+	caption.find('span').last().html(items);
+	caption.find('span').first().html(count);
+};
+
 //init
 wnd_size();
 lux_slider();
+gallery_book();
 
 //window resize
 $(window).resize(function() {

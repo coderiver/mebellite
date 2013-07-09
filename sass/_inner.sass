@@ -63,40 +63,21 @@
 	width: 100%
 	height: 100%
 	+trans(all .2s linear)
-	opacity: 0 
+	+opacity(0)
 	&.is-active
 		position: fixed
 		width: 100%
 		background: $body
-		opacity: 1
+		+opacity(1)
 		z-index: 100
 //project
-.load
-	position: fixed
-	top: 0
-	left: 0
-	width: 0
-	height: 0
-	z-index: 10
-.project, .gallery
+.project
+	padding: 40px
 	background: $body
 	z-index: 10 
 	line-height: 1.2
 	font-size: 14px
-	text-align: left
-.project
-	padding: 40px
-.gallery
-	position: fixed
-	top: 0
-	left: 0
-	right: 0
-	bottom: 0
-	+opacity(0)
-	+trans(opacity .2s linear)
-	&.is-active
-		+opacity(1)
-		z-index: 1000 
+	text-align: left	
 .project__row
 	margin-bottom: 80px
 	overflow: hidden
@@ -159,11 +140,122 @@
 		left: 50%
 		margin: -15px 0 0 -15px
 		+s(zoom)
-.gallery__pic
+//bookblock
+.bb-bookblock
+	width: 400px
+	height: 300px
+	position: relative
+	background: #fff
+	z-index: 100
+.bb-page
+	width: 50%
+	height: 100%
+	left: 50%
+	position: absolute
+	-webkit-transform-style: preserve-3d
+	-moz-transform-style: preserve-3d
+	-o-transform-style: preserve-3d
+	-ms-transform-style: preserve-3d
+	transform-style: preserve-3d
+	-webkit-transform-origin: left center
+	-moz-transform-origin: left center
+	-o-transform-origin: left center
+	-ms-transform-origin: left center
+	transform-origin: left center
+.bb-page > div,
+.bb-outer,
+.bb-content
+	position: absolute
+	height: 100%
+	top: 0
+	left: 0
+.bb-content
+	background: #fff
+.bb-inner
+	position: relative
 	width: 100%
 	height: 100%
+.bb-overlay, .bb-outer
+	-webkit-backface-visibility: hidden
+	-moz-backface-visibility: hidden
+	-o-backface-visibility: hidden
+	-ms-backface-visibility: hidden
+	backface-visibility: hidden
+.bb-page > div
+	width: 100%
+	-webkit-transform-style: preserve-3d
+	-moz-transform-style: preserve-3d
+	-o-transform-style: preserve-3d
+	-ms-transform-style: preserve-3d
+	transform-style: preserve-3d
+	-webkit-backface-visibility: hidden
+	-moz-backface-visibility: hidden
+	-o-backface-visibility: hidden
+	-ms-backface-visibility: hidden
+	backface-visibility: hidden
+.bb-back
+	-webkit-transform: rotateY(-180deg)
+	-moz-transform: rotateY(-180deg)
+	-o-transform: rotateY(-180deg)
+	-ms-transform: rotateY(-180deg)
+	transform: rotateY(-180deg)
+.bb-outer
+	width: 100%
+	overflow: hidden
+	z-index: 999
+.bb-overlay, 
+.bb-flipoverlay
+	background-color: rgba(0, 0, 0, 0.7)
+	position: absolute
+	top: 0px
+	left: 0px
+	width: 100%
+	height: 100%
+	opacity: 0
+	z-index: 1000
+.bb-flipoverlay
+	background-color: rgba(0, 0, 0, 0.2)
+.bb-bookblock > div.bb-page:first-child,
+.bb-bookblock > div.bb-page:first-child .bb-back
+	-webkit-transform: rotateY(180deg)
+	-moz-transform: rotateY(180deg)
+	-o-transform: rotateY(180deg)
+	-ms-transform: rotateY(180deg)
+	transform: rotateY(180deg)
+.bb-item
+	width: 100%
+	height: 100%
+	position: absolute
+	top: 0
+	left: 0
+	display: none
+	background: #fff
+.gallery-wrap,
+.bb-custom-wrapper,
+.bb-bookblock
+	width: 100%
+	height: 100%
+.gallery-wrap
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	z-index: 0
+	+opacity(0)
+	+trans(all .2s linear)
+	&.is-active
+		+opacity(1)
+		z-index: 1000 
+.bb-pic
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	overflow: hidden
 	+bsize
-.gallery__nav
+.bb-nav
 	position: absolute
 	top: 0
 	left: 0
@@ -172,7 +264,15 @@
 	background: rgba(255,255,255,.8) 
 	overflow: hidden
 	z-index: 1000
-.gallery__prev, .gallery__next
+.bb-close
+	position: relative
+	height: 55px
+	padding: 0 25px
+	background: none
+	i
+		display: inline-block
+		+s(close)
+.bb-prev, .bb-next
 	position: relative
 	float: left
 	width: 70px
@@ -187,20 +287,20 @@
 	&.disabled
 		opacity: .4
 		cursor: default 
-.gallery__prev
+.bb-prev
 	i
 		+s(prev)
-.gallery__next
+.bb-next
 	i
 		+s(next)
-.gallery__current
+.bb-current
 	float: left
 	margin-right: 15px
 	line-height: 55px
 	+fh
 	font-size: 24px
 	color: #000
-.gallery__close	
+.bb-close	
 	position: relative
 	float: right
 	height: 55px

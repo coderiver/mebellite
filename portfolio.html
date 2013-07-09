@@ -12,6 +12,7 @@
 	<script src="js/jquery.cycle2.carousel.min.js"></script>	
 	<script src="js/jquery.easing.min.js"></script>	
 	<script src="js/jquery.mousewheel.js"></script>	
+	<script src="js/modernizr.custom.79639.js"></script>
 	<script src="js/common.js"></script>
 </head>
 <body>
@@ -136,7 +137,7 @@
 </section>
 <!-- END .wrap -->
 <!-- BEGIN .project -->
-<div id="project" class="load">
+<div id="project">
 	<div class="project">
 		<button class="back">Назад<span><i></i></span></button>
 		<div class="project__row">
@@ -158,34 +159,56 @@
 				</ul>
 			</div>
 			<ul class="project__gallery">
-				<li data-pic="#"><img src="img/pic10.jpg" alt=""><i class="project__zoom"><i></i></i></li>
-				<li data-pic="#"><img src="img/pic10.jpg" alt=""><i class="project__zoom"><i></i></i></li>
-				<li data-pic="#"><img src="img/pic10.jpg" alt=""><i class="project__zoom"><i></i></i></li>
-				<li data-pic="#"><img src="img/pic10.jpg" alt=""><i class="project__zoom"><i></i></i></li>
-				<li data-pic="#"><img src="img/pic10.jpg" alt=""><i class="project__zoom"><i></i></i></li>
-				<li data-pic="#"><img src="img/pic10.jpg" alt=""><i class="project__zoom"><i></i></i></li>
+				<li data-pic="bb-item1"><img src="img/pic10.jpg" alt=""><i class="project__zoom"><i></i></i></li>
+				<li data-pic="bb-item2"><img src="img/pic10.jpg" alt=""><i class="project__zoom"><i></i></i></li>
+				<li data-pic="bb-item3"><img src="img/pic10.jpg" alt=""><i class="project__zoom"><i></i></i></li>
+				<li data-pic="bb-item4"><img src="img/pic10.jpg" alt=""><i class="project__zoom"><i></i></i></li>
+				<li data-pic="bb-item5"><img src="img/pic10.jpg" alt=""><i class="project__zoom"><i></i></i></li>
+				<li data-pic="bb-item6"><img src="img/pic10.jpg" alt=""><i class="project__zoom"><i></i></i></li>
 			</ul>
 		</div>
 	</div>
 </div>
 <!-- END .project -->
-<!-- BEGIN .gallery -->
-<div class="gallery">
-	<div class="gallery__nav">
-		<button id="gallery-prev" class="gallery__prev"><i></i></button>
-		<div id="gallery-caption" class="gallery__current"></div>
-		<button id="gallery-next" class="gallery__next"><i></i></button>
-		<button class="gallery__close"><i></i></button>
-	</div>
-	<div class="gallery__slider cycle-slideshow" data-cycle-fx="fade" data-cycle-timeout="0" data-cycle-next="#gallery-next" data-cycle-prev="#gallery-prev" data-cycle-slides="> div" data-cycle-carousel-visible="1" data-allow-wrap="false" data-caption="#gallery-caption">
-		<div class="gallery__pic" style="background-image: url(img/pic9.jpg)"></div>
-		<div class="gallery__pic" style="background-image: url(img/pic11.jpg)"></div>
-		<div class="gallery__pic" style="background-image: url(img/pic9.jpg)"></div>
-		<div class="gallery__pic" style="background-image: url(img/pic11.jpg)"></div>
-		<div class="gallery__pic" style="background-image: url(img/pic9.jpg)"></div>
-		<div class="gallery__pic" style="background-image: url(img/pic11.jpg)"></div>
-	</div>
+<!-- BEGIN .gallery-wrap -->
+<div id="gallery-wrap" class="gallery-wrap">	
+	<div class="bb-custom-wrapper">
+		<div id="bb-bookblock" class="bb-bookblock">
+			<div class="bb-item" id="bb-item1">
+				<div class="bb-pic" style="background-image: url(img/pic9.jpg)"></div>
+			</div>
+			<div class="bb-item" id="bb-item2">
+				<div class="bb-pic" style="background-image: url(img/pic11.jpg)"></div>
+			</div>
+			<div class="bb-item" id="bb-item3">
+				<div class="bb-pic" style="background-image: url(img/pic9.jpg)"></div>
+			</div>
+			<div class="bb-item" id="bb-item4">
+				<div class="bb-pic" style="background-image: url(img/pic11.jpg)"></div>
+			</div>
+			<div class="bb-item" id="bb-item5">
+				<div class="bb-pic" style="background-image: url(img/pic9.jpg)"></div>
+			</div>
+			<div class="bb-item" id="bb-item6">
+				<div class="bb-pic" style="background-image: url(img/pic11.jpg)"></div>
+			</div>
+		</div>
+		<div class="bb-nav">
+			<button id="bb-nav-prev" class="bb-prev"><i></i></button>
+			<div id="bb-caption" class="bb-current">
+				<span id="bb-current"></span>
+				<span>/</span>
+				<span id="bb-items"></span>
+			</div>
+			<button id="bb-nav-next" class="bb-next"><i></i></button>
+			<button class="bb-close"><i></i></button>
+		</div>
+		<!-- BEGIN load scripts -->
+		<script src="js/jquery.bookblock.js"></script>
+		<script src="js/page.js"></script>
+		<!-- END load scripts -->
+	</div>				
 </div>
-<!-- END .gallery -->
+<!-- END .gallery-wrap -->
 </body>
 </html>
