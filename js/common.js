@@ -118,8 +118,9 @@ function lux_slider() {
 };
 
 //portfolio description
-$('.portfolio__block').click(function() {
-	$('#project').addClass('is-active');
+$('.portfolio__item').click(function() {
+	$(this).addClass('is-active');
+	setTimeout("$('#project').addClass('is-active')", 200);
 	$('body').addClass('no-scroll');
 });
 $('.catalog__more button').click(function() {
@@ -129,12 +130,10 @@ $('.catalog__more button').click(function() {
 $(document).on('click', '.back', function() {
 	$(this).parent().removeClass('is-active');
 	$('body').removeClass('no-scroll');
+	$('.portfolio__item').removeClass('is-active');
 });
 
 //gallery
-$(document).on('click', '.js-gallery-list li', function() {
-	$('.gallery-wrap').addClass('is-active');
-});
 $(document).on('click', '.bb-close', function() {
 	$('.gallery-wrap').removeClass('is-active');
 });

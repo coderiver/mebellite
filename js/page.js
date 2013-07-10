@@ -21,7 +21,7 @@ var Page = (function() {
 		} ),
 		$navNext = $( '#bb-nav-next' ),
 		$navPrev = $( '#bb-nav-prev' ).addClass('disabled'),
-		$menuItems = $container.find( 'ul.menu-toc > li' ),
+		$menuItems = $( '.js-gallery-list > li' ),
 		$tblcontents = $( '#tblcontents' ),
 		transEndEventNames = {
 			'WebkitTransition': 'webkitTransitionEnd',
@@ -29,7 +29,7 @@ var Page = (function() {
 			'OTransition': 'oTransitionEnd',
 			'msTransition': 'MSTransitionEnd',
 			'transition': 'transitionend'
-		},
+		},		
 		transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
 		supportTransitions = Modernizr.csstransitions;
 	function init() {
@@ -64,13 +64,11 @@ var Page = (function() {
 		} );
 		// click a menu item
 		$menuItems.on( 'click', function() {
-			var $el = $( this ),
-				idx = $el.index(),
-				jump = function() {
-					bb.jump( idx + 1 );
-				};			
-			current !== idx ? closeTOC( jump ) : closeTOC();
-			return false;			
+			$('.gallery-wrap').addClass('is-active');
+			var $el = $( this );
+			var	idx = $el.index();
+			bb.jump( idx + 1 );
+			return false;
 		} );
 	}
 	function updateNavigation( isLastPage ) {		
