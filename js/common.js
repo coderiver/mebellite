@@ -11,7 +11,7 @@ function wnd_size() {
 	var wnd_h = $(window).height();
 	var wnd_w = $(window).width();
 	var min_h = 650;	
-	$('.main, .about, .contacts, .bureau').css({'width': wnd_w, 'height': wnd_h});
+	var min_w = 480;	
 	$('.services__block').css('height', wnd_h/2);	
 	$('.salon').css('line-height', wnd_h + 'px');	
 	function wrap_width() {
@@ -58,6 +58,12 @@ function wnd_size() {
 	articles_width();
 	partners_width();
 	wrap_width();
+	if (wnd_w > min_w) {
+		$('.main, .about, .contacts, .bureau').css({'width': wnd_w, 'height': wnd_h});
+	}
+	else {
+		$('.main, .about, .contacts, .bureau').css({'width': min_w, 'height': wnd_h});
+	};
 	if (wnd_h < min_h) {
 		$('.js-height').css('height', '650px');
 		$('body').css('overflow-y', 'auto');
