@@ -11,7 +11,7 @@ function wnd_size() {
 	var wnd_h = $(window).height();
 	var wnd_w = $(window).width();
 	var min_h = 650;	
-	$('.main, .about, .contacts').css({'width': wnd_w, 'height': wnd_h});
+	$('.main, .about, .contacts, .bureau').css({'width': wnd_w, 'height': wnd_h});
 	$('.services__block').css('height', wnd_h/2);	
 	$('.salon').css('line-height', wnd_h + 'px');	
 	function wrap_width() {
@@ -31,7 +31,18 @@ function wnd_size() {
 		if (koef > koef_new) {
 			$('.portfolio__list').css('width', (koef_new + 1) * 400);
 		};
-	};		
+	};	
+	function articles_width() {
+		var items = $('.article__item').length;
+		var koef = items/3;
+		var koef_new = Math.floor(koef);
+		if (koef == koef_new) {
+			$('.article__list').css('width', koef_new * 450);
+		};
+		if (koef > koef_new) {
+			$('.article__list').css('width', (koef_new + 1) * 450);
+		};
+	};	
 	function partners_width() {
 		var items = $('.partners__item').length;
 		var koef = items/4;
@@ -44,13 +55,15 @@ function wnd_size() {
 		};
 	};
 	portfolio_width();
+	articles_width();
 	partners_width();
 	wrap_width();
 	if (wnd_h < min_h) {
 		$('.js-height').css('height', '650px');
 		$('body').css('overflow-y', 'auto');
-		$('.main').css({'width': wnd_w, 'height': '650px'});	
-		$('.portfolio__item').css({'height': min_h/3, 'line-height': min_h/3 + 'px'});		
+		$('.main, .about, .contacts, .bureau').css({'width': wnd_w, 'height': '650px'});	
+		$('.portfolio__item').css({'height': min_h/3, 'line-height': min_h/3 + 'px'});	
+		$('.article__item').css('height', (min_h - 40)/3);	
 		$('.catalog__item-in').css('height', '610px');			
 		$('.partners__item').css({'width': min_h/4 - 2, 'height': min_h/4 - 2});
 	}
@@ -58,14 +71,18 @@ function wnd_size() {
 		$('.js-height').css('height', wnd_h);
 		$('body').css('overflow-y', 'hidden');
 		$('.portfolio__item').css({'height': wnd_h/3, 'line-height': wnd_h/3 + 'px'});
+		$('.article__item').css('height', (wnd_h - 40)/3);
 		$('.catalog__item-in').css('height', wnd_h - 60);
 		$('.partners__item').css({'width': wnd_h/4 - 2, 'height': wnd_h/4 - 2});
+		$('.article__page').css('width', wnd_w - 305);
 	}
 	if (wnd_h < 800) {
 		$('.catalog__list').addClass('catalog__list_less');
+		$('.article__list').addClass('article__list_less');
 	}
 	else {
 		$('.catalog__list').removeClass('catalog__list_less');
+		$('.article__list').removeClass('article__list_less');
 	}
 };
 
@@ -102,19 +119,20 @@ function lux_slider() {
 
 //portfolio description
 $('.portfolio__block').click(function() {
-	var el = $(this).next();
-	var project = $('#project').html();
-	el.addClass('is-active');
-	$(this).next().html(project);
+	$('#project').addClass('is-active');
+	$('body').addClass('no-scroll');
+});
+$('.catalog__more button').click(function() {
+	$('#page').addClass('is-active');
 	$('body').addClass('no-scroll');
 });
 $(document).on('click', '.back', function() {
-	$(this).parent().parent().removeClass('is-active');
+	$(this).parent().removeClass('is-active');
 	$('body').removeClass('no-scroll');
 });
 
 //gallery
-$(document).on('click', '.project__gallery li', function() {
+$(document).on('click', '.js-gallery-list li', function() {
 	$('.gallery-wrap').addClass('is-active');
 });
 $(document).on('click', '.bb-close', function() {

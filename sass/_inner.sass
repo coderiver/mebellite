@@ -1,7 +1,5 @@
 @import "base"
 //styles for inner pages
-.catalog
-	padding-left: 265px 
 //portfolio	
 .portfolio__list
 	padding-left: 265px
@@ -56,28 +54,26 @@
 		background: rgba(52,43,42,.73)
 		opacity: 1
 		z-index: 5
-.portfolio__desc
+//project
+.project
 	position: fixed
 	top: 0
 	left: 0
-	width: 100%
-	height: 100%
-	+trans(all .2s linear)
-	+opacity(0)
-	&.is-active
-		position: fixed
-		width: 100%
-		background: $body
-		+opacity(1)
-		z-index: 100
-//project
-.project
+	right: 0
+	bottom: 0
 	padding: 40px
+	+trans(opacity .2s linear)
+	+opacity(0)
 	background: $body
 	z-index: 10 
 	line-height: 1.2
 	font-size: 14px
-	text-align: left	
+	text-align: left
+	&.is-active
+		position: fixed
+		background: $body
+		+opacity(1)
+		z-index: 1000
 .project__row
 	margin-bottom: 80px
 	overflow: hidden
@@ -110,22 +106,23 @@
 		font-style: italic
 	strong
 		margin-right: 5px
-.project__gallery
+.project__gallery, .page__gallery
 	overflow: hidden
 	li
 		position: relative
 		float: left
 		width: 20%
+		max-width: 195px
 		margin: 0 10px 10px 0
 		background: #342b2a 
 		cursor: pointer
 		&:hover
-			.project__zoom
+			.project__zoom, .page__zoom
 				+opacity(1)
 	img
 		display: block
 		width: 100%
-.project__zoom
+.project__zoom, .page__zoom
 	position: absolute
 	top: 0
 	left: 0
@@ -241,12 +238,12 @@
 	left: 0
 	width: 100%
 	height: 100%
-	z-index: 0
+	z-index: 10
 	+opacity(0)
 	+trans(all .2s linear)
 	&.is-active
 		+opacity(1)
-		z-index: 1000 
+		z-index: 1100 
 .bb-pic
 	position: absolute
 	top: 0
@@ -321,6 +318,7 @@
 	font-style: italic
 	text-decoration: underline
 	color: #fff 
+	line-height: 36px
 	overflow: visible
 	span
 		position: absolute
@@ -334,6 +332,7 @@
 		+s(back)
 //catalog
 .catalog__list
+	margin-left: 265px
 	padding: 10px
 	font-size: 0
 	white-space: nowrap
@@ -365,7 +364,7 @@
 	margin-bottom: 27px 
 	img
 		display: block
-.catalog__label
+.catalog__label, .page__label
 	margin-bottom: 45px
 	overflow: hidden
 	span
@@ -377,9 +376,9 @@
 		+fh
 		font-size: 24px
 		color: #FFF  
-.catalog__label-disc
+.catalog__label-disc, .page__label-disc
 	float: right
-.catalog__label-new
+.catalog__label-new, .page__label-new
 	float: left
 .catalog__title
 	margin-bottom: 25px
@@ -396,14 +395,16 @@
 	text-transform: uppercase
 .catalog__more
 	text-align: center
-	a
+	button
 		display: inline-block
 		height: 35px
 		padding: 0 25px
+		background: none 
 		border: 2px solid #fff
 		line-height: 35px
 		font-size: 14px
 		text-transform: uppercase
+		color: #FFF 
 //partners
 .partners
 	padding: 4px 4px 4px 270px
@@ -425,7 +426,6 @@
 			opacity: .8 
 //about
 .about
-	position: relative
 	+bsize
 .acord
 	position: absolute
@@ -471,3 +471,223 @@
 	-moz-column-gap: 30px
 	-webkit-column-gap: 30px
 	column-gap: 30px
+//contacts
+.contacts__wrap
+	position: relative
+	margin-left: 265px
+.contacts__pic 
+	position: relative
+	height: 62%
+	+bsize
+.contacts__detail
+	position: relative
+	height: 38%
+.contacts__list
+	position: absolute
+	top: 50%
+	left: 0
+	bottom: 0
+	right: 0
+	margin: -28px 0 0 30px
+	li
+		position: relative
+		float: left
+		padding-left: 20px
+		margin-right: 75px
+		+fh	
+		font-size: 24px
+		color: #FFF 
+		line-height: 1.2
+		&:before
+			content: ""
+			position: absolute
+			top: 4px
+			left: 0
+			width: 6px
+			height: 6px
+			border: 3px solid #fff
+			border-radius: 50%
+.contacts__copyright, .contacts__created
+	position: absolute
+	bottom: 20px
+	font-size: 12px
+	color: #FFF 
+.contacts__copyright
+	left: 30px
+.contacts__created
+	right: 40px
+	a
+		color: #FFF
+		text-decoration: underline 
+//bureau
+.bureau
+	+bsize
+.bureau__info
+	position: absolute
+	top: 50%
+	left: 50%
+	margin: -200px 0 0 -285px
+	padding: 4px
+	border: 2px solid #302622
+.bureau__info-in
+	width: 760px
+	padding: 30px
+	background: rgb(48,38,34) 
+	background: rgba(48,38,34,.8) 
+.bureau__title
+	margin-bottom: 30px
+	text-transform: uppercase
+	+fh
+	font-size: 24px
+	line-height: 1
+.bureau__desc
+	margin-bottom: 30px
+	p
+		margin-bottom: 25px
+		line-height: 1.5
+.bureau__link
+	text-align: center
+	a
+		position: relative
+		display: inline-block
+		height: 48px
+		padding: 0 15px 0 60px
+		border: 2px solid #fff
+		line-height: 48px
+		text-transform: uppercase
+		font-size: 18px
+	i
+		position: absolute
+		top: 13px
+		left: 24px
+		+s(arr-link)
+//page
+.page
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+	background: #24180e
+	z-index: 10
+	+trans(opacity .2s linear)
+	+opacity(0)
+	&.is-active
+		+opacity(1)
+		z-index: 1000
+	.back
+		right: 40px
+		z-index: 100  
+.page__in
+	position: absolute
+	top: 10px
+	left: 10px
+	right: 10px
+	bottom: 10px
+	border: 2px solid #2e231e
+.page__content	
+	position: absolute
+	top: 2px
+	left: 2px
+	right: 2px
+	bottom: 2px
+	padding: 20px 30px
+	background: #2e231e 
+.page__detail
+	overflow: hidden
+.page__pic
+	float: left
+	width: 250px
+	margin-right: 50px
+	img
+		display: block
+		margin-bottom: 25px
+.page__desc
+	overflow: hidden
+.page__text
+	float: left
+	width: 40%
+	margin-right: 5%
+.page__text-in
+	p
+		line-height: 1.5
+.page__param
+	float: left
+	width: 40%
+.page__title
+	margin-bottom: 25px
+	+fh	
+	font-size: 24px
+.page__param-title
+	margin: 5px 0 25px 0 
+	font-size: 18px
+.page__param-list
+	li
+		line-height: 1.5
+		font-style: italic
+	strong
+		margin-right: 5px
+.page__price
+	padding: 80px 0
+	clear: both
+	font-size: 16px
+	text-transform: uppercase
+	font-weight: bold
+//article
+.article__list
+	padding: 20px
+	margin-left: 265px
+	font-size: 0
+.article__list_less
+	.article__pic
+		margin-right: 30px
+	.article__title
+		margin-bottom: 5px
+		font-size: 14px
+	.article__desc
+		font-size: 12px
+.article__item
+	display: inline-block
+	width: 450px
+	padding-right: 20px
+	vertical-align: top
+	font-size: 14px
+	+box
+.article__pic
+	float: left
+	margin-right: 20px 
+	img
+		display: block
+.article__detail
+	overflow: hidden
+.article__title
+	margin-bottom: 25px
+	font-size: 18px
+	font-weight: bold
+.article__desc
+	margin-bottom: 10px
+	p
+		line-height: 1.4
+.article__more
+	a
+		font-style: italic
+		color: #785940 
+		text-decoration: underline
+.article__page
+	position: relative
+	margin-left: 265px
+	padding: 40px 20px
+	.article__title
+		padding: 118px 0 60px 0
+		margin: 0
+		font-size: 24px
+	.article__desc
+		margin-right: 100px 
+		-moz-column-count: 2
+		-webkit-column-count: 2
+		column-count: 2
+		-moz-column-gap: 40px
+		-webkit-column-gap: 40px
+		column-gap: 40px
+		p
+			line-height: 1.5
