@@ -65,6 +65,7 @@ var Page = (function() {
 		// click a menu item
 		$menuItems.on( 'click', function() {
 			$('.gallery-wrap').addClass('is-active');
+			$('body').addClass('no-scroll');
 			var $el = $( this );
 			var	idx = $el.index();
 			bb.jump( idx + 1 );

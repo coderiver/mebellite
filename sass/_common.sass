@@ -2,10 +2,12 @@
 * 
 	margin: 0
 	padding: 0 
+	//box-shadow: 0 0 0 1px white
 	//-webkit-text-size-adjust: none
 html, body 
 	height: 100%
 body	
+	position: relative
 	background: $body 
 	font-family: 'Scada', Arial, Tahoma, sans-serif
 	font-weight: normal 
@@ -14,6 +16,8 @@ body
 	line-height: 1.2
 	overflow-x: auto
 	overflow-y: hidden
+	+rt
+		overflow: auto
 	//-webkit-transform: translate3d(0,0,0)
 	//-weblit-backface-visibility: hidden
 // resets
@@ -49,10 +53,14 @@ table
 	white-space: nowrap
 	font-size: 0 
 	z-index: 100 
+	+rt
+		white-space: normal 
 .item
 	position: relative
 	display: inline-block
 	vertical-align: top
 	white-space: normal
 	font-size: 14px 
+	+rt
+		display: block
 

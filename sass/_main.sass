@@ -7,16 +7,23 @@
 	top: 0
 	left: 0
 	bottom: 0
-	width: 245px
-	padding: 0 10px
+	width: 265px
 	background: rgb(17,8,1)
 	background: rgba(17,8,1,.8) 
+	+rt
+		position: relative
+		width: auto
 .sidebar__in
 	position: absolute
 	top: 50%
-	left: 10px
-	right: 10px
+	left: 0
+	width: 245px
+	padding: 10px
 	margin-top: -172px
+	+rt
+		position: relative
+		width: auto
+		margin: 0 0 20px 0
 .logo
 	margin-bottom: 47px
 	overflow: hidden
@@ -42,6 +49,9 @@
 		+fh
 		font-size: 20px
 		color: #FFF 
+	+rt
+		li
+			text-align: center
 .lang
 	position: absolute
 	left: 10px
@@ -54,6 +64,11 @@
 			color: #fff 
 	span
 		margin: 0 7px
+	+rt
+		position: relative
+		left: auto
+		bottom: auto 
+		padding: 0 0 20px 10px
 //slider
 .sl
 	position: absolute
@@ -62,6 +77,8 @@
 	margin-top: -125px
 	border: 2px solid #fff
 	padding: 2px 
+	+rt
+		display: none
 .sl__items
 	background: rgb(255,255,255) 
 	background: rgba(255,255,255,.8) 
@@ -135,6 +152,8 @@
 .services
 	width: 2055px
 	font-size: 0
+	+rt
+		width: auto
 .services__block
 	display: inline-block
 	width: 685px 
@@ -144,6 +163,12 @@
 	overflow: hidden
 	+box
 	font-size: 14px
+	+rt
+		display: block
+		width: auto
+		min-height: 250px
+		padding: 10px
+		margin-bottom: 20px
 .services__title
 	margin-bottom: 25px
 	+fh
@@ -162,6 +187,8 @@
 .lux
 	position: relative
 	width: 875px
+	+rt
+		display: none
 .lux__item
 	width: 875px
 	+bsize
@@ -174,6 +201,7 @@
 	bottom: 0
 	background: rgb(255,255,255) 
 	background: rgba(255,255,255,.8) 
+	z-index: 200
 .lux__prev, .lux__next
 	position: relative
 	height: 92px
@@ -184,6 +212,8 @@
 	i
 		position: absolute
 		top: 34px
+	&.disabled
+		display: none
 .lux__prev
 	float: left
 	i
@@ -209,6 +239,9 @@
 		+fh
 		font-size: 24px
 		color: #000 
+	+rt
+		span
+			font-size: 18px
 .lux__pager
 	position: absolute
 	top: 85px
@@ -216,6 +249,7 @@
 	right: 0
 	font-size: 0
 	text-align: center
+	z-index: 200 
 	span
 		display: inline-block
 		width: 10px
@@ -230,6 +264,8 @@
 //salon
 .salon
 	width: 870px
+	+rt
+		width: auto
 .salon__in
 	position: relative
 	display: inline-block
@@ -245,6 +281,8 @@
 	bottom: 0
 	width: 435px
 	+bsize
+	+rt
+		width: auto
 .salon__title
 	margin-bottom: 50px
 	text-align: center
@@ -257,6 +295,8 @@
 		font-size: 24px
 		color: #FFF
 		+fh 
+	+rt
+		margin-bottom: 20px
 .salon__text
 	text-align: left
 .salon__column
@@ -267,6 +307,11 @@
 	p
 		font-size: 14px
 		line-height: 1.5
+	+rt
+		display: block
+		width: 100%
+		margin-bottom: 20px
+		padding: 0 10px
 //main-contacts
 .m-contacts
 	width: 375px 
@@ -274,13 +319,20 @@
 	a
 		color: #626262 
 		text-decoration: underline
+	+rt
+		padding: 0 10px
+		width: auto
 .m-contacts__in
 	padding: 60px 0 0 35px
 	color: #626262 
+	+rt
+		padding: 20px 0
 .m-contacts__title
 	margin-bottom: 75px 
 	padding-left: 5px
 	font-size: 18px
+	+rt
+		margin-bottom: 20px
 .m-contacts__list 	
 	margin-bottom: 70px	
 	li
@@ -296,7 +348,11 @@
 			width: 6px
 			height: 6px
 			border: 3px solid #626262
-			border-radius: 50% 	
+			border-radius: 50%
+	+rt
+		margin-bottom: 20px
+		li
+			margin-bottom: 10px 	
 .m-contacts__map
 	a
 		position: relative
@@ -307,6 +363,8 @@
 		top: -12px
 		left: 0
 		+s(l-map)
+	+rt
+		margin-bottom: 20px
 .m-contacts__down 	
 	position: absolute
 	bottom: 30px
@@ -315,3 +373,8 @@
 	p
 		&:first-child
 			margin-bottom: 10px 
+	+rt
+		position: relative
+		bottom: auto
+		left: auto
+		

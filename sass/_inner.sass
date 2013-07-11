@@ -2,9 +2,11 @@
 //styles for inner pages
 //portfolio	
 .portfolio__list
-	padding-left: 265px
+	margin-left: 265px
 	font-size: 0
 	overflow: hidden
+	+rt
+		margin-left: 0
 .portfolio__item
 	position: relative
 	display: inline-block
@@ -27,6 +29,11 @@
 			transform: scale(10, 10)
 			-ms-transform: scale(10, 10)
 			-webkit-transform: scale(10, 10)
+	+rt
+		display: block
+		width: auto
+		height: 250px
+		line-height: 250px 
 .portfolio__block
 	position: absolute
 	top: 1px
@@ -90,16 +97,35 @@
 		background: $body
 		+opacity(1)
 		z-index: 1050
+	+rt
+		padding: 0
+		.back
+			right: 50px
+			z-index: 100 
+.project__in
+	+rt
+		position: relative
+		height: 100%
+		padding: 10px
+		overflow: auto
 .project__row
 	margin-bottom: 80px
 	overflow: hidden
+	+rt
+		margin-bottom: 20px
 .project__pic, .project__detail
 	float: left
 	width: 32%	
 	margin-right: 3%
+	+rt
+		float: none
+		width: auto
+		margin-right: 0
 .project__pic
 	height: 300px
 	+bsize
+	+rt
+		margin-bottom: 20px
 .project__desc
 	overflow: hidden
 .project__title
@@ -107,6 +133,8 @@
 	+fh	
 	font-size: 24px
 	color: #FFF 
+	+rt
+		margin-bottom: 20px
 .project__text
 	-moz-column-count: 2
 	-webkit-column-count: 2
@@ -116,12 +144,21 @@
 	column-gap: 30px
 	p
 		line-height: 1.5
+	+rt
+		-moz-column-count: 1
+		-webkit-column-count: 1
+		column-count: 1
+		-moz-column-gap: 0
+		-webkit-column-gap: 0
+		column-gap: 0
 .project__detail 	
 	li
 		margin-bottom: 15px
 		font-style: italic
 	strong
 		margin-right: 5px
+	+rt
+		margin-bottom: 20px
 .project__gallery, .page__gallery
 	overflow: hidden
 	li
@@ -138,6 +175,9 @@
 	img
 		display: block
 		width: 100%
+	+rt
+		li
+			width: 40%
 .project__zoom, .page__zoom
 	position: absolute
 	top: 0
@@ -236,11 +276,11 @@
 	-ms-transform: rotateY(180deg)
 	transform: rotateY(180deg)
 .bb-item
-	width: 100%
-	height: 100%
 	position: absolute
 	top: 0
 	left: 0
+	right: 0
+	bottom: 0
 	display: none
 	background: #fff
 .gallery-wrap,
@@ -252,8 +292,8 @@
 	position: fixed
 	top: 0
 	left: 0
-	width: 100%
-	height: 100%	
+	right: 0
+	bottom: 0
 	z-index: 10
 	+trans(opacity .2s linear)
 	+opacity(0)		
@@ -352,6 +392,8 @@
 	padding: 10px
 	font-size: 0
 	white-space: nowrap
+	+rt
+		margin-left: 0
 .catalog__list_less
 	.catalog__pic
 		margin-bottom: 7px
@@ -371,11 +413,16 @@
 	white-space: normal
 	&:first-child
 		border-width: 2px
+	+rt
+		display: block
 .catalog__item-in	
 	width: 250px
 	padding: 15px 30px
 	background: #2e231e 
 	vertical-align: top
+	+rt
+		width: auto
+		padding: 10px
 .catalog__pic
 	margin-bottom: 27px 
 	img
@@ -392,10 +439,16 @@
 		+fh
 		font-size: 24px
 		color: #FFF  
+	+rt
+		margin-bottom: 20px
 .catalog__label-disc, .page__label-disc
 	float: right
+	+rt
+		float: left
 .catalog__label-new, .page__label-new
 	float: left
+	+rt
+		margin-right: 2px
 .catalog__title
 	margin-bottom: 25px
 	+fh	
@@ -405,13 +458,17 @@
 	margin-bottom: 40px
 	font-size: 14px 	
 	line-height: 1.5
+	+rt
+		margin-bottom: 20px
 .catalog__price 	
 	margin-bottom: 50px
 	font-size: 18px
 	text-transform: uppercase
+	+rt
+		margin-bottom: 20px
 .catalog__more
 	text-align: center
-	button
+	a
 		display: inline-block
 		height: 35px
 		padding: 0 25px
@@ -424,6 +481,8 @@
 //partners
 .partners
 	padding: 4px 4px 4px 270px
+	+rt
+		padding: 10px
 .partners__list
 	font-size: 0
 	text-align: left
@@ -440,6 +499,9 @@
 		+bsize
 		&:hover
 			opacity: .8 
+	+rt
+		width: 50%
+		height: 250px
 //about
 .about
 	+bsize
@@ -449,6 +511,12 @@
 	left: 50%
 	width: 830px
 	margin: -245px 0 0 -280px
+	+rt
+		position: relative
+		top: auto
+		left: auto
+		width: auto
+		margin: 0
 .acord__item
 	border: 2px solid #fff
 	padding: 2px 
@@ -474,7 +542,6 @@
 		right: 25px
 		+s(plus)
 .acord__desc
-	height: 300px
 	padding: 5px 30px 20px
 	p
 		padding-bottom: 25px 
@@ -487,17 +554,31 @@
 	-moz-column-gap: 30px
 	-webkit-column-gap: 30px
 	column-gap: 30px
+	+rt
+		-moz-column-count: 1
+		-webkit-column-count: 1
+		column-count: 1
+		-moz-column-gap: 0
+		-webkit-column-gap: 0
+		column-gap: 0
 //contacts
 .contacts__wrap
 	position: relative
 	margin-left: 265px
+	+rt
+		margin-left: 0
 .contacts__pic 
 	position: relative
 	height: 62%
 	+bsize
+	+rt
+		height: 250px
+		margin-bottom: 10px
 .contacts__detail
 	position: relative
 	height: 38%
+	+rt
+		height: auto
 .contacts__list
 	position: absolute
 	top: 50%
@@ -505,9 +586,10 @@
 	bottom: 0
 	right: 0
 	margin: -28px 0 0 30px
+	font-size: 0
 	li
 		position: relative
-		float: left
+		display: inline-block
 		padding-left: 20px
 		margin-right: 75px
 		+fh	
@@ -523,18 +605,35 @@
 			height: 6px
 			border: 3px solid #fff
 			border-radius: 50%
+	+rt
+		position: relative
+		top: auto
+		margin: 0
+		padding: 10px
+		li
+			display: block
+			margin-bottom: 10px
 .contacts__copyright, .contacts__created
 	position: absolute
 	bottom: 20px
 	font-size: 12px
 	color: #FFF 
+	+rt
+		position: relative
+		bottom: auto
+		padding: 0 10px
 .contacts__copyright
 	left: 30px
+	+rt
+		left: auto
 .contacts__created
 	right: 40px
 	a
 		color: #FFF
-		text-decoration: underline 
+		text-decoration: underline
+	+rt
+		right: auto 
+		padding: 10px
 //bureau
 .bureau
 	+bsize
@@ -545,11 +644,19 @@
 	margin: -200px 0 0 -285px
 	padding: 4px
 	border: 2px solid #302622
+	+rt
+		position: relative
+		top: auto
+		left: auto
+		margin: 0
 .bureau__info-in
 	width: 760px
 	padding: 30px
 	background: rgb(48,38,34) 
-	background: rgba(48,38,34,.8) 
+	background: rgba(48,38,34,.8)
+	+rt
+		width: auto
+		padding: 10px 
 .bureau__title
 	margin-bottom: 30px
 	text-transform: uppercase
@@ -579,21 +686,14 @@
 		+s(arr-link)
 //page
 .page
-	position: fixed
-	top: 0
-	left: 0
-	right: 0
-	bottom: 0
-	background: #24180e
-	z-index: 10
-	+trans(opacity .2s linear)
-	+opacity(0)
-	&.is-active
-		+opacity(1)
-		z-index: 1000
+	position: relative
+	margin-left: 265px
+	background: $body 
 	.back
 		right: 40px
-		z-index: 100  
+		z-index: 100 
+	+rt
+		margin-left: 0 
 .page__in
 	position: absolute
 	top: 10px
@@ -601,6 +701,13 @@
 	right: 10px
 	bottom: 10px
 	border: 2px solid #2e231e
+	+rt
+		position: relative
+		top: auto
+		left: auto
+		right: auto
+		bottom: auto
+		padding: 2px
 .page__content	
 	position: absolute
 	top: 2px
@@ -609,6 +716,13 @@
 	bottom: 2px
 	padding: 20px 30px
 	background: #2e231e 
+	+rt
+		position: relative
+		top: auto
+		left: auto
+		right: auto
+		bottom: auto
+		padding: 10px
 .page__detail
 	overflow: hidden
 .page__pic
@@ -618,18 +732,29 @@
 	img
 		display: block
 		margin-bottom: 25px
+	+rt
+		float: none
+		width: auto
+		margin: 0
 .page__desc
 	overflow: hidden
 .page__text
 	float: left
 	width: 40%
 	margin-right: 5%
+	+rt
+		float: none
+		width: auto
+		margin: 0 0 20px 0 
 .page__text-in
 	p
 		line-height: 1.5
 .page__param
 	float: left
 	width: 40%
+	+rt
+		float: none
+		width: auto
 .page__title
 	margin-bottom: 25px
 	+fh	
@@ -649,11 +774,16 @@
 	font-size: 16px
 	text-transform: uppercase
 	font-weight: bold
+	+rt
+		padding: 20px 0
 //article
 .article__list
 	padding: 20px
 	margin-left: 265px
 	font-size: 0
+	+rt
+		padding: 10px
+		margin-left: 0
 .article__list_less
 	.article__pic
 		margin-right: 30px
@@ -669,17 +799,27 @@
 	vertical-align: top
 	font-size: 14px
 	+box
+	+rt
+		display: block
+		width: auto
+		padding-right: 0
+		margin-bottom: 20px
 .article__pic
 	float: left
 	margin-right: 20px 
 	img
 		display: block
+	+rt
+		float: none
+		margin-bottom: 10px
 .article__detail
 	overflow: hidden
 .article__title
 	margin-bottom: 25px
 	font-size: 18px
 	font-weight: bold
+	+rt
+		margin-bottom: 10px
 .article__desc
 	margin-bottom: 10px
 	p
@@ -695,7 +835,6 @@
 	padding: 40px 20px
 	.article__title
 		padding: 118px 0 60px 0
-		margin: 0
 		font-size: 24px
 	.article__desc
 		margin-right: 100px 
@@ -707,3 +846,16 @@
 		column-gap: 40px
 		p
 			line-height: 1.5
+	+rt
+		margin-left: 0
+		padding: 10px
+		.article__title
+			padding: 10px
+		.article__desc
+			margin-right: 0
+			-moz-column-count: 1
+			-webkit-column-count: 1
+			column-count: 1
+			-moz-column-gap: 0
+			-webkit-column-gap: 0
+			column-gap: 0
