@@ -5,7 +5,7 @@ function wnd_size() {
 	var wnd_h = $(window).height();
 	var wnd_w = $(window).width();
 	var min_h = 650;	
-	var min_w = 480;	
+	var min_w = 600;	
 	if (wnd_w >= min_w) {
 		//function mouse scroll
 		$('html, body').mousewheel(function(e, delta) { 
