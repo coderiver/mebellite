@@ -16,46 +16,47 @@
 	<script src="js/common.js"></script>
 </head>
 <body>
+<!-- BEGIN .sidebar -->
+<div class="sidebar">
+	<div class="sidebar__in">
+		<a class="logo" href="#">
+			<span class="logo__pic"></span>
+			<span class="logo__title">Дом Итальянского Интерьера</span>
+		</a>
+		<nav class="nav">
+			<ul>
+				<li><a href="#">О компании</a></li>
+				<li><a href="#">Мебель в наличии</a></li>
+				<li><a href="#">Портфолио</a></li>
+				<li><a href="#">Партнеры</a></li>
+				<li><a href="#">Архитекторам</a></li>
+				<li><a href="#">Архитектурное бюро</a></li>
+				<li><a href="#">Контакты</a></li>
+			</ul>
+		</nav>
+	</div>
+	<div class="lang"><a class="is-selected" href="#">RU</a><span>/</span><a href="#">IT</a></div>
+</div>
+<!-- END .sidebar -->
 <!-- BEGIN .wrap -->
 <section class="wrap js-height">
 	<!-- BEGIN .main -->
-	<div class="item main" style="background-image: url(img/main.jpg);">
-		<div class="sidebar">
-			<div class="sidebar__in">
-				<div class="logo">
-					<a href="#">
-						<div class="logo__pic"></div>
-						<div class="logo__title">Дом Итальянского Интерьера</div>
-					</a>					
-				</div>
-				<nav class="nav">
-					<ul>
-						<li><a href="#">О компании</a></li>
-						<li><a href="#">Мебель в наличии</a></li>
-						<li><a href="#">Портфолио</a></li>
-						<li><a href="#">Партнеры</a></li>
-						<li><a href="#">Архитекторам</a></li>
-						<li><a href="#">Архитектурное бюро</a></li>
-						<li><a href="#">Контакты</a></li>
-					</ul>
-				</nav>
-			</div>
-			<div class="lang"><a class="is-selected" href="#">RU</a><span>/</span><a href="#">IT</a></div>
-		</div>
+	<div class="item main" style="background-image: url(img/main.jpg);">	
+		<div class="main__top">
+			<button class="main__sound is-off"></button>
+			<div class="main__scroll"></div>
+		</div>	
 		<div class="sl">
 			<div class="sl__items cycle-slideshow" data-cycle-fx="carousel" data-cycle-timeout="0" data-cycle-next="#sl-next" data-cycle-prev="#sl-prev" data-cycle-slides="> div" data-cycle-carousel-visible="1" data-allow-wrap="true" data-caption="#sl-caption">
-				<div class="sl__logo">
-					<div class="sl__logo-pic"></div>
-					<div class="sl__logo-title">Дом Итальянского Интерьера</div>
+				<div class="sl__slide">
+					<div class="sl__logo">
+						<div class="sl__logo-pic"></div>
+						<div class="sl__logo-title">Дом Итальянского Интерьера</div>
+					</div>
 				</div>
-				<div class="sl__logo">
-					<div class="sl__logo-pic"></div>
-					<div class="sl__logo-title">Дом Итальянского Интерьера</div>
-				</div>
-				<div class="sl__logo">
-					<div class="sl__logo-pic"></div>
-					<div class="sl__logo-title">Дом Итальянского Интерьера</div>
-				</div>
+				<div class="sl__slide">Slide 2</div>
+				<div class="sl__slide">Slide 3</div>
+				<div class="sl__slide">Slide 4</div>
 			</div>
 			<div class="sl__nav">
 				<button id="sl-prev" class="sl__prev"><i></i></button>

@@ -2,14 +2,32 @@
 //styles for main page(class with prefix "m-")
 .main	
 	+bsize
-.sidebar
+	+rt
+		height: 427px
+		margin-bottom: 20px
+.main__top
 	position: absolute
+	top: 30px
+	right: 30px
+.main__sound 
+	float: left
+	margin-right: 40px
+	+s(sound)
+	&.is-off
+		+s(sound-off)
+.main__scroll
+	float: left
+	+s(scroll)
+//sidebar
+.sidebar
+	position: fixed
 	top: 0
 	left: 0
 	bottom: 0
 	width: 265px
 	background: rgb(17,8,1)
 	background: rgba(17,8,1,.8) 
+	z-index: 200 
 	+rt
 		position: relative
 		width: auto
@@ -25,18 +43,21 @@
 		width: auto
 		margin: 0 0 20px 0
 .logo
+	display: block
 	margin-bottom: 47px
 	overflow: hidden
 .logo__pic
 	float: right
 	margin-left: 15px
-	+s(logo-s)
+	+svg(logo, 126, 98)
 .logo__title
+	display: block
 	padding-top: 45px
 	overflow: hidden
 	text-align: right
 	font-size: 15px
 	text-transform: uppercase
+	color: #FFF 
 .nav
 	li
 		margin-top: 5px
@@ -48,7 +69,6 @@
 	a
 		+fh
 		font-size: 20px
-		color: #FFF 
 	+rt
 		li
 			text-align: center
@@ -59,9 +79,12 @@
 	font-size: 20px
 	color: #59524d 
 	a		
-		color: #59524d
+		color: #59524d		
+		&:hover
+			color: $or 
 		&.is-selected
-			color: #fff 
+			color: #fff
+			cursor: default
 	span
 		margin: 0 7px
 	+rt
@@ -106,11 +129,17 @@
 	i
 		left: 8px
 		+s(sl-prev)
+	&:hover
+		i
+			+s(sl-prev-h)
 .sl__next
 	right: 0
 	i
 		right: 8px
 		+s(sl-next)
+	&:hover
+		i
+			+s(sl-next-h)
 .sl__current
 	position: absolute
 	top: 0
@@ -129,9 +158,13 @@
 		&:first-child
 			margin-left: 0
 			font-size: 26px
-.sl__logo
+.sl__slide
+	width: 610px
 	height: 190px
 	padding: 20px
+	vertical-align: top
+	color: #000 
+.sl__logo	
 	line-height: 190px
 	font-size: 0
 .sl__logo-pic, .sl__logo-title
@@ -145,7 +178,6 @@
 	margin-top: 17px	
 	font-size: 37px
 	text-transform: uppercase
-	color: #000  
 	white-space: normal
 	line-height: 1.5
 //services
@@ -183,6 +215,8 @@
 		font-style: italic
 		color: #785940  
 		text-decoration: underline
+		&:hover
+			color: $or 
 //lux
 .lux
 	position: relative
@@ -212,8 +246,8 @@
 	i
 		position: absolute
 		top: 34px
-	&.disabled
-		display: none
+	&:hover
+		text-decoration: underline
 .lux__prev
 	float: left
 	i
@@ -259,6 +293,8 @@
 		background: #000
 		cursor: pointer
 		+ht
+		&:hover
+			background: $or 
 		&.cycle-pager-active
 			background: #FFF 
 //salon
@@ -319,6 +355,8 @@
 	a
 		color: #626262 
 		text-decoration: underline
+		&:hover
+			text-decoration: none 
 	+rt
 		padding: 0 10px
 		width: auto

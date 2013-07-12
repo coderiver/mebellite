@@ -5,6 +5,7 @@ $body: #24180e
 $or: #fcb327
 // global sprites with padding
 $icons: sprite-map("icons/*.png", $spacing: 10px)
+$svg: "svg/"
 // sized sprites
 @mixin image-size($path)
 	width: image-width($path)
@@ -19,6 +20,13 @@ $icons: sprite-map("icons/*.png", $spacing: 10px)
 //only image, when dimensions are useless
 @mixin si($map, $sprite)
 	background: sprite($map, $sprite) no-repeat
+//svg
+@mixin svg($name, $width, $height)
+	width: $width + px
+	height: $height + px
+	background-image: inline-image($svg + $name + ".svg")
+	-webkit-background-size: 100% 100%
+	background-size: 100% 100%
 //mixin
 @mixin ht
 	font: 0/0 a
