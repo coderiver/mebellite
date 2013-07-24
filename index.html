@@ -41,22 +41,26 @@
 <!-- BEGIN .wrap -->
 <section class="wrap js-height">
 	<!-- BEGIN .main -->
-	<div class="item main" style="background-image: url(img/main.jpg);">	
+	<div class="item main">	
+		<div class="main__slider">
+			<div id="sl-pic1" class="main__slider-item js-sl-item" style="background-image: url(img/main.jpg);"></div>
+			<div id="sl-pic2" class="main__slider-item js-sl-item" style="background-image: url(img/pic9.jpg);"></div>
+			<div id="sl-pic3" class="main__slider-item js-sl-item" style="background-image: url(img/pic11.jpg);"></div>
+		</div>
 		<div class="main__top">
 			<button class="main__sound is-off"></button>
 			<div class="main__scroll"></div>
 		</div>	
-		<div class="sl">
+		<div class="sl js-sl">
 			<div class="sl__items cycle-slideshow" data-cycle-fx="carousel" data-cycle-timeout="0" data-cycle-next="#sl-next" data-cycle-prev="#sl-prev" data-cycle-slides="> div" data-cycle-carousel-visible="1" data-allow-wrap="true" data-caption="#sl-caption">
-				<div class="sl__slide">
+				<div class="sl__slide" data-item="sl-pic1">
 					<div class="sl__logo">
 						<div class="sl__logo-pic"></div>
 						<div class="sl__logo-title">Дом Итальянского Интерьера</div>
 					</div>
 				</div>
-				<div class="sl__slide">Slide 2</div>
-				<div class="sl__slide">Slide 3</div>
-				<div class="sl__slide">Slide 4</div>
+				<div class="sl__slide" data-item="sl-pic2">Slide 2</div>
+				<div class="sl__slide" data-item="sl-pic3">Slide 3</div>
 			</div>
 			<div class="sl__nav">
 				<button id="sl-prev" class="sl__prev"><i></i></button>

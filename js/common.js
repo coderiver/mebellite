@@ -9,7 +9,7 @@ function wnd_size() {
 	if (wnd_w >= min_w) {
 		//function mouse scroll
 		$('html, body').mousewheel(function(e, delta) { 
-		    $('html, body').stop().animate({scrollLeft: '-='+(500*delta)+'px' }, 200, 'easeOutQuad');
+		    $('html, body').stop().animate({scrollLeft: '-='+(200*delta)+'px' }, 400, 'easeOutQuad');
 		    e.preventDefault();
 		});
 		//general
@@ -166,10 +166,26 @@ function gallery_book() {
 	caption.find('span').first().html(count);
 };
 
+//main slider
+function main_slider (argument) {
+	var el = $('.js-sl');
+	var el_items = $('.js-sl-item');
+	$('.js-sl-item:not(:first)').hide();
+	//el_items.first().css('display', 'block');
+	var next = el.find('.sl__next');
+	next.click(function() {
+		var pic = el.find('.cycle-slide-active').next().attr('data-item');
+		el_items.fadeOut();
+		$('#' + pic).fadeIn();
+	});
+};
+
+
 //init
 wnd_size();
 lux_slider();
 gallery_book();
+main_slider();
 
 //window resize
 $(window).resize(function() {

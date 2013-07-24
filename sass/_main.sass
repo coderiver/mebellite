@@ -1,10 +1,19 @@
 @import "base"
 //styles for main page(class with prefix "m-")
-.main	
-	+bsize
+.main		
 	+rt
 		height: 427px
 		margin-bottom: 20px
+.main__slider, .main__slider-item
+	position: absolute !important
+	top: 0 !important
+	right: 0 !important
+	left: 0 !important
+	bottom: 0 !important
+	width: 100% !important
+	height: 100% !important  
+.main__slider-item
+	+bsize
 .main__top
 	position: absolute
 	top: 30px
@@ -246,8 +255,10 @@
 	i
 		position: absolute
 		top: 34px
-	&:hover
+	&:hover		
 		text-decoration: underline
+		i 
+			opacity: .5
 .lux__prev
 	float: left
 	i

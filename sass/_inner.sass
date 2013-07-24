@@ -82,29 +82,29 @@
 	position: fixed
 	top: 0
 	left: 0
-	right: 0
-	bottom: 0
-	padding: 40px
+	width: 100%
+	height: 100%
+	padding: 40px 40px 40px 315px
 	+trans(all .2s linear)
 	+opacity(0)
 	background: $body
+	+box
 	z-index: 10 
 	line-height: 1.2
 	font-size: 14px
 	text-align: left
 	&.is-active
-		position: fixed
 		background: $body
 		+opacity(1)
-		z-index: 1050
+		z-index: 150
 	+rt
 		padding: 0
 		.back
 			right: 50px
 			z-index: 100 
 .project__in
-	+rt
-		position: relative
+	position: relative
+	+rt		
 		height: 100%
 		padding: 10px
 		overflow: auto
@@ -485,6 +485,9 @@
 		font-size: 14px
 		text-transform: uppercase
 		color: #FFF 
+		&:hover
+			border-color: $or
+			color: $or 
 //partners
 .partners
 	padding: 4px 4px 4px 270px
@@ -548,6 +551,10 @@
 		top: 24px
 		right: 25px
 		+s(plus)
+	&:hover 
+		color: #000
+		i
+			+s(plus-h)
 .acord__desc
 	padding: 5px 30px 20px
 	p
